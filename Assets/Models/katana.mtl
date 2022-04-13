@@ -1,0 +1,66 @@
+
+newmtl Standard7A0900
+Kd  0.4784314 0.03529412 0
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Standard040302
+Kd  0.01568628 0.01176471 0.007843138
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Standard63070E
+Kd  0.3882353 0.02745098 0.05490196
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Reflective2B2B2B
+Kd  0.1686275 0.1686275 0.1686275
+Ks  0.8 0.8 0.8
+Ka  0 0 0
+d  1
+Ns  925
+illum 5
+
+
+
+
+newmtl ReflectiveEA3415
+Kd  0.9176471 0.2039216 0.08235294
+Ks  0.8 0.8 0.8
+Ka  0 0 0
+d  1
+Ns  925
+illum 5
+
+
+
+
+newmtl ReflectiveE5C0B2
+Kd  0.8980392 0.7529412 0.6980392
+Ks  0.8 0.8 0.8
+Ka  0 0 0
+d  1
+Ns  925
+illum 5
+
+
+

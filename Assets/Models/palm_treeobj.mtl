@@ -1,0 +1,22 @@
+
+newmtl StandardFFBD6A
+Kd  1 0.7411765 0.4156863
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Standard00FF00
+Kd  0 1 0
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
