@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour {
 
-    private Vector3 holdPosition = new Vector3(0, -0.3f, 0.03f);
+    public Vector3 holdPosition = new Vector3(0, -0.3f, 0.03f);
     public Vector3 holdRotation = new Vector3(0, 0, 0);
 
     private bool holdingSword = false;
