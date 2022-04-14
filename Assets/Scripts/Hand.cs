@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour {
 
-    public Vector3 holdPosition = new Vector3(0, -0.025f, 0.03f);
+    private Vector3 holdPosition = new Vector3(0, -0.3f, 0.03f);
     public Vector3 holdRotation = new Vector3(0, 0, 0);
 
     private bool holdingSword = false;
@@ -21,7 +21,6 @@ public class Hand : MonoBehaviour {
         oldIndexTriggerState = indexTriggerState;
         indexTriggerState = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller);
         handTriggerState = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller);
-
         if (holdingSword) {
             //Sword swordScript = sword.GetComponent<sword>();
      
@@ -42,11 +41,13 @@ public class Hand : MonoBehaviour {
             if (handTriggerState > 0.9f && !holdingSword) {
                 Debug.Log("called grab ");
                 Grab(other.gameObject);
+                
             }
         }
     }
 
     void Grab(GameObject obj) {
+
         holdingSword = true;
         sword = obj;
 
@@ -54,7 +55,7 @@ public class Hand : MonoBehaviour {
 
         sword.transform.localPosition = holdPosition;
         sword.transform.localEulerAngles = holdRotation;
-
+        sword.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         sword.GetComponent<Rigidbody>().useGravity = false;
         sword.GetComponent<Rigidbody>().isKinematic = true;
     }
