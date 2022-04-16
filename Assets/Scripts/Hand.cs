@@ -35,11 +35,8 @@ public class Hand : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider other) {
-        Debug.Log("touch");
         if (other.CompareTag("Sword")) {
-            Debug.Log("touch sword");
             if (handTriggerState > 0.9f && !holdingSword) {
-                Debug.Log("called grab ");
                 Grab(other.gameObject);
                 
             }

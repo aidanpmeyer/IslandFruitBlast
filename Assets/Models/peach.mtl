@@ -1,0 +1,33 @@
+
+newmtl Standard7CD535
+Kd  0.4862745 0.8352941 0.2078431
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl StandardFF865D
+Kd  1 0.5254902 0.3647059
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl StandardAE5B00
+Kd  0.682353 0.3568628 0
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
