@@ -4,18 +4,41 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    public List<GameObject> parts;
+   // public List<GameObject> parts;
+    public GameObject fruitfab1;
+    public GameObject fruitfab2;
     public GameObject fruitfab;
+    private Vector3 scaleChange;
+    private Vector3 scaleLimit, positionChange;
+    private Rigidbody rb;
+    bool falling;
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
+        positionChange = new Vector3(0.0f, -0.1f, 0.0f);
+        scaleLimit = new Vector3(4, 4, 4);
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        falling = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!falling)
+        {
+         //transform.position += Time.deltaTime * positionChange;
+         transform.localScale += Time.deltaTime * scaleChange;
+                if (transform.localScale.y >= scaleLimit.y)
+                {
+                    rb.useGravity = true;
+                    falling = true;
+                GameObject half1 = Instantiate(fruitfab, transform.position, transform.rotation);
+            }
+        }
+       
     }
     void OnCollisionEnter(Collision other)
     {
@@ -29,8 +52,14 @@ public class Fruit : MonoBehaviour
 
     void Split()
     {
-        if(parts.Count > 1)
-        {
+        GameObject half1 = Instantiate(fruitfab1, transform.position, transform.rotation);
+        GameObject half2 = Instantiate(fruitfab2, transform.position, transform.rotation);
+        half1.transform.localScale = transform.localScale;
+        half2.transform.localScale = transform.localScale;
+        Destroy(gameObject);
+       
+        /*if(parts.Count > 1)
+       / {
             Debug.Log("yay");
             GameObject one = Instantiate(fruitfab,transform.position,transform.rotation);
             Fruit fruitone = one.GetComponent<Fruit>();
@@ -53,7 +82,7 @@ public class Fruit : MonoBehaviour
             }
             DestroyObject(this);
 
-        }
+        }*/
 
     }
 }
