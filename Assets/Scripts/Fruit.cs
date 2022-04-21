@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-   // public List<GameObject> parts;
+    // public List<GameObject> parts;
+    public Transform spawn;
     public GameObject fruitfab1;
     public GameObject fruitfab2;
     public GameObject fruitfab;
@@ -21,6 +22,7 @@ public class Fruit : MonoBehaviour
         scaleLimit = new Vector3(4, 4, 4);
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        rb.isKinematic = true;
         falling = false;
     }
 
@@ -34,11 +36,21 @@ public class Fruit : MonoBehaviour
                 if (transform.localScale.y >= scaleLimit.y)
                 {
                     rb.useGravity = true;
+                rb.isKinematic = false;
                     falling = true;
-                GameObject half1 = Instantiate(fruitfab, transform.position, transform.rotation);
+
+                StartCoroutine("Respawn");
+                Instantiate(fruitfab, spawn);
             }
         }
        
+    }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Instantiate(fruitfab, spawn);
+        StopCoroutine("Respawn");
     }
     void OnCollisionEnter(Collision other)
     {
@@ -47,6 +59,11 @@ public class Fruit : MonoBehaviour
         {
             Debug.Log("split");
             Split();
+        }
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+
         }
     }
 

@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Sword
   - Fruit
+  - Ground
   layers:
   - Default
   - TransparentFX
