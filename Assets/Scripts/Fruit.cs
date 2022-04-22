@@ -36,8 +36,23 @@ public class Fruit : MonoBehaviour
                 if (transform.localScale.y >= scaleLimit.y)
                 {
                     rb.useGravity = true;
-                rb.isKinematic = false;
+                    rb.isKinematic = false;
                     falling = true;
+
+
+                    //could switch this to a function that calls drop when the tree is shaken?
+
+                    /** 
+                    if (transform.localScale.y <= scaleLimit.y) {
+                        transform.localScale += Time.deltaTime * scaleChange;
+                    } else {
+                        if (dropped) { // boolean set to true when the tree is shook, in this case fruit only falls if fully grown
+                            rb.useGravity = true;
+                            rb.isKinematic = false;
+                            falling = true;
+                        }
+                    }
+                    **/
 
                 StartCoroutine("Respawn");
                 Instantiate(fruitfab, spawn);
@@ -65,6 +80,10 @@ public class Fruit : MonoBehaviour
             Destroy(gameObject);
 
         }
+    }
+
+    public void Drop() {
+        // dropped = true;
     }
 
     void Split()

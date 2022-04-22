@@ -9,6 +9,7 @@ TagManager:
   - Sword
   - Fruit
   - Ground
+  - Tree
   layers:
   - Default
   - TransparentFX

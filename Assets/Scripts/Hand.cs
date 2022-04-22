@@ -16,6 +16,8 @@ public class Hand : MonoBehaviour {
     private float handTriggerState = 0;
     private float oldIndexTriggerState = 0;
 
+    private bool shaking = false;
+
     // Update is called once per frame
     void Update() {
         oldIndexTriggerState = indexTriggerState;
@@ -25,10 +27,24 @@ public class Hand : MonoBehaviour {
             //Sword swordScript = sword.GetComponent<sword>();
      
 
-            //shaking 
-           // if (indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f)
-                
-
+            //shaking, checks if either hand intersects the tree and controller is moving
+            IEnumerable<bool> movements = new List<bool>{GameObject.Find("LeftHandAnchor").GetComponent<MovementRecognizer>().getIsMoving, 
+                GameObject.Find("RightHandAnchor").GetComponent<MovementRecognizer>().getIsMoving};
+            bool isMoving = movements.Any(b => b == true);
+            if (indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f && isMoving) {
+                Ray rayLeftHand = new Ray(GameObject.Find("LeftHandAnchor").transform.position + new Vector3(0,0,0.25f), transform.right);
+                RaycastHit hitDataLeft;
+                Physics.Raycast(rayLeftHand, out hitDataLeft);
+                Ray rayRightHand = new Ray(GameObject.Find("RightHandAnchor").transform.position + new Vector3(0,0,0.25f), -transform.right);
+                RaycastHit hitDataRight;
+                Physics.Raycast(rayRightHand, out hitDataRight);
+                if (hitDataLeft.collider.gameObject.CompareTag("Tree")) {
+                    Shake(hitDataLeft.collider.gameObject);
+                } else if (hitDataRight.collider.gameObject.CompareTag("Tree")) {
+                    Shake(hitDataRight.collider.gameObject);
+                }
+            }
+            
             if (handTriggerState < 0.9f)
                 Release();
         }
@@ -69,5 +85,11 @@ public class Hand : MonoBehaviour {
 
         holdingSword = false;
         sword = null;
+    }
+
+    void Shake(GameObject tree) {
+        // make tree tilt
+        tree.GetComponent<Tree>().getShook();
+        // make fruit drop?
     }
 }
