@@ -51,7 +51,7 @@ public class MovementRecognizer : MonoBehaviour
     }
 
     void UpdateMovement() {
-        Vector3 lastPosition = positionList[positionList.Count - 1]
+        Vector3 lastPosition = positionList[positionList.Count - 1];
         if (Vector3.Distance(movementSource.position, lastPosition) > newPositionThreshold) {
             positionList.Add(movementSource.position);
         }

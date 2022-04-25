@@ -8,6 +8,14 @@ public class Tree : MonoBehaviour
     private float shakeDuration;
     private float decreaseFactor = 1.0f;
     private Vector3 originalPos;
+    public GameObject fruitfab;
+    private Fruit one;
+    private Fruit two;
+    private Fruit three;
+    public Transform t1;
+    public Transform t2;
+    public Transform t3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +40,41 @@ public class Tree : MonoBehaviour
 			shakeDuration = 0f;
 			transform.position = originalPos;
 		}
+        if (one == null) one = Respawn( t1);  
+
+        if (two == null) two =  Respawn(t2);
+ 
+        if (three == null) three = Respawn(t3);
+
 
     }
 
+    Fruit Respawn(Transform t)
+    {
+        GameObject newfruit = Instantiate(fruitfab, t.position, t.rotation);
+        Fruit fruit = newfruit.GetComponent<Fruit>();
+        return fruit;
+
+    }
+
+
+ 
+
     public void getShook() {
         shakeDuration = 3f;
+        StartCoroutine("Drop");
         // how to make this apply only to fruit on a specific tree?
-        GameObject.Find("peach").GetComponent<Fruit>().Drop();
+        
+        
+       
+    }
+
+    IEnumerator Drop()
+    {
+        one.Drop();
+        yield return new WaitForSeconds(.5f);
+        two.Drop();
+        yield return new WaitForSeconds(.5f);
+        three.Drop();
     }
 }

@@ -28,10 +28,10 @@ public class Hand : MonoBehaviour {
      
 
             //shaking, checks if either hand intersects the tree and controller is moving
-            IEnumerable<bool> movements = new List<bool>{GameObject.Find("LeftHandAnchor").GetComponent<MovementRecognizer>().getIsMoving, 
-                GameObject.Find("RightHandAnchor").GetComponent<MovementRecognizer>().getIsMoving};
-            bool isMoving = movements.Any(b => b == true);
-            if (indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f && isMoving) {
+            //IEnumerable<bool> movements = new List<bool>{GameObject.Find("LeftHandAnchor").GetComponent<MovementRecognizer>().getIsMoving, 
+             //   GameObject.Find("RightHandAnchor").GetComponent<MovementRecognizer>().getIsMoving};
+            //bool isMoving = movements.Any(b => b == true);
+            if (indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f) {
                 Ray rayLeftHand = new Ray(GameObject.Find("LeftHandAnchor").transform.position + new Vector3(0,0,0.25f), transform.right);
                 RaycastHit hitDataLeft;
                 Physics.Raycast(rayLeftHand, out hitDataLeft);

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    // public List<GameObject> parts;
-    public Transform spawn;
+    // public List<GameObject> parts
     public GameObject fruitfab1;
     public GameObject fruitfab2;
     public GameObject fruitfab;
@@ -16,10 +15,10 @@ public class Fruit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
         scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
         positionChange = new Vector3(0.0f, -0.1f, 0.0f);
-        scaleLimit = new Vector3(4, 4, 4);
+        scaleLimit = new Vector3(3, 3, 3);
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.isKinematic = true;
@@ -35,6 +34,7 @@ public class Fruit : MonoBehaviour
          transform.localScale += Time.deltaTime * scaleChange;
                 if (transform.localScale.y >= scaleLimit.y)
                 {
+                    Drop();
                     rb.useGravity = true;
                     rb.isKinematic = false;
                     falling = true;
@@ -54,19 +54,14 @@ public class Fruit : MonoBehaviour
                     }
                     **/
 
-                StartCoroutine("Respawn");
-                Instantiate(fruitfab, spawn);
+                
+                //Instantiate(fruitfab, spawn);
             }
         }
        
     }
 
-    IEnumerator Respawn()
-    {
-        yield return new WaitForSeconds(1.0f);
-        Instantiate(fruitfab, spawn);
-        StopCoroutine("Respawn");
-    }
+  
     void OnCollisionEnter(Collision other)
     {
         Debug.Log("collided");
@@ -83,7 +78,9 @@ public class Fruit : MonoBehaviour
     }
 
     public void Drop() {
-        // dropped = true;
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        falling = true;
     }
 
     void Split()
@@ -93,7 +90,7 @@ public class Fruit : MonoBehaviour
         half1.transform.localScale = transform.localScale;
         half2.transform.localScale = transform.localScale;
         Destroy(gameObject);
-       
+
         /*if(parts.Count > 1)
        / {
             Debug.Log("yay");
