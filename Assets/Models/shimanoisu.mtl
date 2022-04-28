@@ -1,0 +1,33 @@
+
+newmtl Reflective7F7C7B
+Kd  0.4980392 0.4862745 0.4823529
+Ks  0.8 0.8 0.8
+Ka  0 0 0
+d  1
+Ns  925
+illum 5
+
+
+
+
+newmtl FlatFFFFFF
+Kd  1 1 1
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl Flat45F7A1
+Kd  0.2705882 0.9686275 0.6313726
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+

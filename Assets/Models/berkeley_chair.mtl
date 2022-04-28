@@ -1,0 +1,132 @@
+
+newmtl Reflective7F7C7B
+Kd  0.4980392 0.4862745 0.4823529
+Ks  0.8 0.8 0.8
+Ka  0 0 0
+d  1
+Ns  925
+illum 5
+
+
+
+
+newmtl FlatE4B332
+Kd  0.8941177 0.7019608 0.1960784
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl FlatD8BA47
+Kd  0.8470588 0.7294118 0.2784314
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl FlatDDC569
+Kd  0.8666667 0.772549 0.4117647
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl FlatDBCB60
+Kd  0.8588235 0.7960784 0.3764706
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl FlatCBB64F
+Kd  0.7960784 0.7137255 0.3098039
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl Flat0509A5
+Kd  0.01960784 0.03529412 0.6470588
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl Flat0609A1
+Kd  0.02352941 0.03529412 0.6313726
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl Flat070CAD
+Kd  0.02745098 0.04705882 0.6784314
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl Flat0100B8
+Kd  0.003921569 0 0.7215686
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl Flat0100C0
+Kd  0.003921569 0 0.7529412
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl Flat12179E
+Kd  0.07058824 0.09019608 0.6196079
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+

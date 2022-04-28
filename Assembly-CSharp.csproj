@@ -116,8 +116,11 @@
     <Compile Include="Assets\Scripts\Flash.cs" />
     <Compile Include="Assets\Scripts\Fruit.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
+    <Compile Include="Assets\Scripts\LastSlice.cs" />
     <Compile Include="Assets\Scripts\Monster.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\PineBush.cs" />
+    <Compile Include="Assets\Scripts\Pineapple.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Tree.cs" />
   </ItemGroup>

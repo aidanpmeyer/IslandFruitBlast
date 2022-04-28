@@ -1,0 +1,55 @@
+
+newmtl StandardF2FF3D
+Kd  0.9490196 1 0.2392157
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Standard679C17
+Kd  0.4039216 0.6117647 0.09019608
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl StandardA09219
+Kd  0.627451 0.572549 0.09803922
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Standard81EC3E
+Kd  0.5058824 0.9254902 0.2431373
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl StandardCEC91B
+Kd  0.8078431 0.7882353 0.1058824
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
