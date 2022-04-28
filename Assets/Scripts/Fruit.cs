@@ -12,6 +12,8 @@ public class Fruit : MonoBehaviour
     private Vector3 scaleLimit, positionChange;
     private Rigidbody rb;
     bool falling;
+    private ScoreManager scoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class Fruit : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
         falling = false;
+        scoreManager = GameObject.Find("Canvas").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -85,6 +88,7 @@ public class Fruit : MonoBehaviour
 
     void Split()
     {
+        scoreManager.score += 1f;
         GameObject half1 = Instantiate(fruitfab1, transform.position, transform.rotation);
         GameObject half2 = Instantiate(fruitfab2, transform.position, transform.rotation);
         half1.transform.localScale = transform.localScale;
