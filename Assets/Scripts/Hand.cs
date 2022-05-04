@@ -15,9 +15,15 @@ public class Hand : MonoBehaviour {
     private float indexTriggerState = 0;
     private float handTriggerState = 0;
     private float oldIndexTriggerState = 0;
-
+    
     private bool shaking = false;
+    private TimeManager tm;
 
+    private void Start()
+    {
+        tm = GameObject.FindObjectOfType<TimeManager>();
+
+    }
     // Update is called once per frame
     void Update() {
         oldIndexTriggerState = indexTriggerState;
@@ -45,7 +51,7 @@ public class Hand : MonoBehaviour {
                 }
             }
             
-            if (handTriggerState < 0.9f)
+            if (tm.timeLeft <= 0)
                 Release();
         }
     }
@@ -71,6 +77,7 @@ public class Hand : MonoBehaviour {
         sword.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         sword.GetComponent<Rigidbody>().useGravity = false;
         sword.GetComponent<Rigidbody>().isKinematic = true;
+        tm.Setgrab();
     }
 
     void Release() {

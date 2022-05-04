@@ -7,12 +7,12 @@ public class Fruit : MonoBehaviour
     // public List<GameObject> parts
     public GameObject fruitfab1;
     public GameObject fruitfab2;
-    public GameObject fruitfab;
     private Vector3 scaleChange;
     private Vector3 scaleLimit, positionChange;
     private Rigidbody rb;
     bool falling;
     private ScoreManager scoreManager;
+    private AudioSource sliceclip;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class Fruit : MonoBehaviour
         rb.isKinematic = true;
         falling = false;
         scoreManager = GameObject.Find("Canvas").GetComponent<ScoreManager>();
+        sliceclip = GameObject.Find("Canvas").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,23 +43,6 @@ public class Fruit : MonoBehaviour
                     rb.isKinematic = false;
                     falling = true;
 
-
-                    //could switch this to a function that calls drop when the tree is shaken?
-
-                    /** 
-                    if (transform.localScale.y <= scaleLimit.y) {
-                        transform.localScale += Time.deltaTime * scaleChange;
-                    } else {
-                        if (dropped) { // boolean set to true when the tree is shook, in this case fruit only falls if fully grown
-                            rb.useGravity = true;
-                            rb.isKinematic = false;
-                            falling = true;
-                        }
-                    }
-                    **/
-
-                
-                //Instantiate(fruitfab, spawn);
             }
         }
        
@@ -94,32 +78,9 @@ public class Fruit : MonoBehaviour
         half1.transform.localScale = transform.localScale;
         half2.transform.localScale = transform.localScale;
         Destroy(gameObject);
+        sliceclip.Play();
 
-        /*if(parts.Count > 1)
-       / {
-            Debug.Log("yay");
-            GameObject one = Instantiate(fruitfab,transform.position,transform.rotation);
-            Fruit fruitone = one.GetComponent<Fruit>();
-            GameObject two = Instantiate(fruitfab, transform.position, transform.rotation);
-            Fruit fruittwo = two.GetComponent<Fruit>();
-            for (int i = 0; i < parts.Count; i++)
-            {
-                if (i < parts.Count / 2)
-                {
-                    GameObject part = parts[i];
-                    part.transform.parent = one.transform;
-                    fruitone.parts[i] = part;
-                }
-                else
-                {
-                    GameObject part = parts[i];
-                    part.transform.parent = two.transform;
-                    fruittwo.parts[i- parts.Count/2] = part;
-                }
-            }
-            DestroyObject(this);
-
-        }*/
+     
 
     }
 }

@@ -1,0 +1,56 @@
+
+newmtl FlatFFFFFFa98e34f5-9b7d-4888-914e-fc89ccd2ce20
+Kd  1 1 1
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+map_Kd a98e34f5-9b7d-4888-914e-fc89ccd2ce20.png
+
+
+
+
+newmtl StandardFF3022
+Kd  1 0.1882353 0.1333333
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl StandardE38D5C
+Kd  0.8901961 0.5529412 0.3607843
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl StandardF14035
+Kd  0.945098 0.2509804 0.2078431
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Standard000000
+Kd  0 0 0
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+

@@ -7,19 +7,43 @@ public class TimeManager : MonoBehaviour {
 
     public TMP_Text textTimer;
     public float timeLeft;
+    private bool grabbed;
+    private AudioSource timerclip;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = 60f;
+        timeLeft = 120f;
         textTimer.text = "Time Remaining: " + timeLeft.ToString();
+        grabbed = false;
+        timerclip = GameObject.Find("Text Time").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        textTimer.text = "Time Remaining: " + (Mathf.Round(timeLeft)).ToString();
+        if (grabbed){
+            timeLeft -= Time.deltaTime;
+            textTimer.text = "Time Remaining: " + (Mathf.Round(timeLeft)).ToString();
+
+        }
+        if (timeLeft == 0)
+        {
+            timerclip.Play();
+            textTimer.text = "Times up!";
+
+        }
+        if (timeLeft <= 0)
+        {
+            textTimer.text = "Times up!";
+            
+        }
         
+        
+    }
+
+    public void Setgrab()
+    {
+        grabbed = true;
     }
 }

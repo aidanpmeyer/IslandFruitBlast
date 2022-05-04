@@ -7,28 +7,34 @@ public class PineBush : MonoBehaviour
     public GameObject fruitfab;
     public Pineapple one;
     public Transform t1;
-    private double respawntime;
+    private bool respawning;
+    private float respawntime;
     // Start is called before the first frame update
     void Start()
     {
-        
+        respawntime = 3f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
-        if (one == null) one = Respawn(t1);
+
+
+        if (one == null && !respawning)
+        {
+           
+            respawning = true;
+            StartCoroutine("Respawn", t1);
+        }
 
     }
-
-    Pineapple Respawn(Transform t)
+    IEnumerator Respawn(Transform t)
     {
+        yield return new WaitForSeconds(respawntime);
         GameObject newfruit = Instantiate(fruitfab, t.position, t.rotation);
-        
         Pineapple pine = newfruit.GetComponent<Pineapple>();
-        return pine;
+        one =  pine;
+        respawning = false;
 
     }
 }

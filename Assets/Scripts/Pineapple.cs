@@ -41,22 +41,7 @@ public class Pineapple : MonoBehaviour
                
 
 
-                //could switch this to a function that calls drop when the tree is shaken?
-
-                /** 
-                if (transform.localScale.y <= scaleLimit.y) {
-                    transform.localScale += Time.deltaTime * scaleChange;
-                } else {
-                    if (dropped) { // boolean set to true when the tree is shook, in this case fruit only falls if fully grown
-                        rb.useGravity = true;
-                        rb.isKinematic = false;
-                        falling = true;
-                    }
-                }
-                **/
-
-
-                //Instantiate(fruitfab, spawn);
+               
             }
         }
 
@@ -93,31 +78,6 @@ public class Pineapple : MonoBehaviour
         half2.transform.localScale = transform.localScale;
         Destroy(gameObject);
 
-        /*if(parts.Count > 1)
-       / {
-            Debug.Log("yay");
-            GameObject one = Instantiate(fruitfab,transform.position,transform.rotation);
-            Fruit fruitone = one.GetComponent<Fruit>();
-            GameObject two = Instantiate(fruitfab, transform.position, transform.rotation);
-            Fruit fruittwo = two.GetComponent<Fruit>();
-            for (int i = 0; i < parts.Count; i++)
-            {
-                if (i < parts.Count / 2)
-                {
-                    GameObject part = parts[i];
-                    part.transform.parent = one.transform;
-                    fruitone.parts[i] = part;
-                }
-                else
-                {
-                    GameObject part = parts[i];
-                    part.transform.parent = two.transform;
-                    fruittwo.parts[i- parts.Count/2] = part;
-                }
-            }
-            DestroyObject(this);
-
-        }*/
 
     }
 }
